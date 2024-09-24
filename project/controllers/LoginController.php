@@ -42,7 +42,7 @@ if ($isValid === true) {
 
 if ($user) {
     $_SESSION['user_id'] = $user['id']; 
-    $_SESSION['email'] = $user['email']; // Set email in session
+    $_SESSION['email'] = $user['email'];
     $_SESSION['isLoggedIn'] = true;
     header("Location: ../views/view.php");
 }

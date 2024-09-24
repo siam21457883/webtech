@@ -92,6 +92,25 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // Profile update via AJAX
+    if (updateProfileForm) {
+        updateProfileForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const formData = new FormData(updateProfileForm);
+
+            fetch("../controllers/updateProfile.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                const messageDiv = updateProfileForm.querySelector("#message"); // Adjust selector as needed
+                messageDiv.textContent = data.message; // Display success or error message
+            });
+        });
+    }
+
     // Old password check for change password
     if (changePasswordForm) {
         const oldPasswordField = changePasswordForm.querySelector('input[name="old_password"]');
@@ -116,25 +135,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                 });
             }
-        });
-    }
-
-    // Profile update via AJAX
-    if (updateProfileForm) {
-        updateProfileForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
-
-            const formData = new FormData(updateProfileForm);
-
-            fetch("../controllers/updateProfile.php", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                const messageDiv = updateProfileForm.querySelector("#message"); // Adjust selector as needed
-                messageDiv.textContent = data.message; // Display success or error message
-            });
         });
     }
 });

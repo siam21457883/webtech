@@ -82,6 +82,7 @@ body {
   }
 }
 
+/*for background images*/
 
 .bg-img {
     background-image: url("dog_cat.jpg");
@@ -160,6 +161,8 @@ body {
     align-items: center;
 }
 
+/* containers */
+
 .container {
     position : absolute;
     width: 400px;
@@ -172,7 +175,7 @@ body {
     position: relative; 
     z-index: 1; 
 }
-
+/* fields */
 .field {
     width: 80%;
     display: block;
@@ -181,7 +184,7 @@ body {
     border: 5px solid gray;
     border-radius: 4px;
 }
-
+/* buttons */
 #submit{
     padding: 10px 50px;
     border: 5px;
@@ -220,6 +223,8 @@ body {
     display: block;
   }
 }
+
+/* home page user cards */
 
 .card {
   margin-top: 10px;

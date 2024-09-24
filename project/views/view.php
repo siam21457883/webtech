@@ -25,8 +25,6 @@ include '../controllers/viewController.php'; // Include the controller to fetch 
   <a href="AboutUs.php">About Us</a>
   <a href="update_profile.php">Update Profile</a>
   <a href="change_password.php">Change Password</a>
-
-
   <a href="../controllers/Logout.php">Logout</a>
   <div class="search-container">
     <form action="/action page">
@@ -47,9 +45,9 @@ include '../controllers/viewController.php'; // Include the controller to fetch 
                     <p class="title"><?php echo htmlspecialchars(ucfirst($row['status'])); ?></p>
                     
                     <?php if (isset($_SESSION['email'])): ?>
-                        <p calss="desc">Posted by: <?php echo htmlspecialchars($_SESSION['email']); ?></p> 
+                        <p class="desc">Posted by: <?php echo htmlspecialchars($_SESSION['email']); ?></p> 
                     <?php endif; ?>
-                    <p><button class="button">show details</button></p>
+                    <p><a href="showdetails.php?id=<?php echo $row['id']; ?>" class="button">Show Details</a></p>
                 </div>
             </div>
         </div>

@@ -8,7 +8,6 @@
 </head>
 <body>    
 
-
 <div class="topnav">
   <a  href="view.php">Home</a>
   <a class="active" href="#">Lost & Found</a>

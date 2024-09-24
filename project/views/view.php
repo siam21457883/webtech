@@ -6,7 +6,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-include '../controllers/viewController.php'; // Include the controller to fetch posts
+include '../controllers/viewController.php';
 
 ?>
 

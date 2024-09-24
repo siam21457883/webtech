@@ -1,7 +1,12 @@
 <?php
 session_start();
+include '../controllers/showdetailsController.php'; 
 
-include '../controllers/ShowDetailsController.php'; 
+$postId = isset($_GET['id']) ? intval($_GET['id']) : 0;
+$postDetails = getPostDetails($postId); // Function should fetch post details based on ID
+if (!$postDetails) {
+    die("Post not found.");
+}
 ?>
 
 <!DOCTYPE html>

@@ -5,7 +5,7 @@ require "../models/User.php";
 $response = [];
 
 // Sanitize input data
-$email = $_SESSION['email']; // Get the logged-in user's email from the session
+$email = $_SESSION['email'];
 $contact_number = sanitize($_POST['contact_number']);
 $gender = sanitize($_POST['gender']);
 $password = sanitize($_POST['password']);

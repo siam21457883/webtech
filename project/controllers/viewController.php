@@ -6,7 +6,7 @@ if (!$conn) {
 }
 
 // Fetch lost and found data
-$sql = "SELECT title, description, status, image, created_time FROM posts ORDER BY created_time DESC";
+$sql = "SELECT id, title, description, status, image, created_time FROM posts ORDER BY created_time DESC"; // Include ID in the selection
 $result = mysqli_query($conn, $sql);
 
 $posts = [];
@@ -17,6 +17,4 @@ if ($result) {
 }
 
 mysqli_close($conn);
-
-
 ?>

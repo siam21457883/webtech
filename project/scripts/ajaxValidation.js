@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('changePasswordForm');
 
     form.addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent the default form submission
+        event.preventDefault();
 
         // Get form values
         const email = document.getElementById('email').value;
@@ -19,7 +19,26 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        // AJAX request to validate email and old password
+       
+
+        // Send the data to the AJAX validation script
+        const data = `email=${encodeURIComponent(email)}&old_password=${encodeURIComponent(oldPassword)}`;
+        xhr.send(data);
+    });
+
+    function showError(field, message) {
+        const errorSpan = document.querySelector(`span[data-error="${field}"]`);
+        errorSpan.textContent = message;
+    }
+
+    function clearErrors() {
+        const errorSpans = document.querySelectorAll('span.error');
+        errorSpans.forEach(span => {
+            span.textContent = '';
+        });
+    }
+
+     // AJAX request to validate email and old password
         const xhr = new XMLHttpRequest();
         xhr.open('POST', '../controllers/ajaxValidate.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -39,21 +58,4 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
         };
-
-        // Send the data to the AJAX validation script
-        const data = `email=${encodeURIComponent(email)}&old_password=${encodeURIComponent(oldPassword)}`;
-        xhr.send(data);
-    });
-
-    function showError(field, message) {
-        const errorSpan = document.querySelector(`span[data-error="${field}"]`);
-        errorSpan.textContent = message;
-    }
-
-    function clearErrors() {
-        const errorSpans = document.querySelectorAll('span.error');
-        errorSpans.forEach(span => {
-            span.textContent = '';
-        });
-    }
 });
